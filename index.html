@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Game Hub</title>
+</head>
+<body>
+
+<h1>Welcome to Your Game Hub</h1>
+
+<button onclick="loadGame('Fpappy_Box.html')">Fpappy Box</button>
+<button onclick="loadGame('Duckys_Cozy_kitchen.html')">Ducky's Cozy Kitchen</button>
+<button onclick="loadGame('AI_Maze.html')">AI Maze</button>
+
+<div id="content"></div>
+
+<script>
+    function loadGame(game) {
+        fetch(game)
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('content').innerHTML = html;
+            })
+            .catch(error => console.error('Error loading game:', error));
+    }
+</script>
+
+</body>
+  </html>
